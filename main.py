@@ -1,21 +1,9 @@
-import requests
+from src.data.champions import get_champions, get_champion_detail
 
+champions = get_champions()
+for champ in champions:
+    print(champ)
 
-versions = requests.get("https://ddragon.leagueoflegends.com/api/versions.json")
-
-last_version = versions.json()[0]
-
-champions = requests.get(f"https://ddragon.leagueoflegends.com/cdn/{last_version}/data/fr_FR/champion.json")
-
-champions = champions.json()
-
-for element in champions["data"]:
-    print(element)
-
-
-champion_detail = requests.get(f"https://ddragon.leagueoflegends.com/cdn/{last_version}/data/fr_FR/champion/Darius.json")
-champion_detail = champion_detail.json()
-
-spells = champion_detail["data"]["Darius"]["spells"]
+spells = get_champion_detail("Darius")
 for spell in spells:
     print(spell["name"])
