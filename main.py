@@ -1,9 +1,4 @@
-from src.data.champions import get_champions, get_champion_detail
+from src.data.matchups import get_matchup_stats
 
-champions = get_champions()
-for champ in champions:
-    print(champ)
-
-spells = get_champion_detail("Darius")
-for spell in spells:
-    print(spell["name"])
+stats = get_matchup_stats("Darius", "Mordekaiser")
+print(stats)
