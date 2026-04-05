@@ -1,4 +1,8 @@
-from src.data.matchups import get_matchup_stats
+from src.rag.knowledge_base import create_knowledge_base
 
-stats = get_matchup_stats("Darius", "Mordekaiser")
-print(stats)
+collection = create_knowledge_base()
+print("Documents ajoutés:", collection.count())
+
+# teste la recherche
+results = collection.query(query_texts=["comment battre darius"], n_results=2)
+print(results["documents"])
