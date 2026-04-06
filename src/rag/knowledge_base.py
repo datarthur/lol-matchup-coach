@@ -9,7 +9,7 @@ def create_knowledge_base():
         model_name="all-MiniLM-L6-v2"
     )
     
-    collection = client.create_collection(
+    collection = client.get_or_create_collection(
         name="matchups",
         embedding_function=ef
     )
